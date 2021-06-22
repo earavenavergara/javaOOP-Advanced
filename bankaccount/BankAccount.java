@@ -12,8 +12,8 @@ public class BankAccount {
 		setnCuenta(crearNC);
 		setsCCorriente(sCCorriente);
 		setsCAhorro(sCAhorro);
-		dC += sCCorriente + sCAhorro;
-		nC++;
+		setdC(getdC() + (sCCorriente + sCAhorro));
+		setnC(getnC() + 1);
 		System.out.println("saldo CC: " + sCCorriente + " saldo CA: " + sCAhorro);
 	}
 
@@ -25,13 +25,13 @@ public class BankAccount {
 	public void addCC(double i) {
 		System.out.println("addCC: " + (i + getsCCorriente()));
 		setsCCorriente(i + getsCCorriente());
-		dC += i;
+		setdC(getdC() + i);
 	}
 
 	public void addCA(double i) {
 		System.out.println("addCA: " + (i + getsCAhorro()));
 		setsCAhorro(i + getsCAhorro());
-		dC += i;
+		setdC(getdC() + i);
 	}
 
 	public void rCC(double i) {
@@ -76,6 +76,22 @@ public class BankAccount {
 
 	private void setsCAhorro(double sCAhorro) {
 		this.sCAhorro = sCAhorro;
+	}
+
+	public static int getnC() {
+		return nC;
+	}
+
+	public static void setnC(int nC) {
+		BankAccount.nC = nC;
+	}
+
+	public static double getdC() {
+		return dC;
+	}
+
+	public static void setdC(double dC) {
+		BankAccount.dC = dC;
 	}
 
 }
